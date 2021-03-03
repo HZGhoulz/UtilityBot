@@ -4,7 +4,7 @@ const prefix = '-';
  
 bot.on('ready', () => {
     console.log('Your bot is now online!')
-    bot.user.setActivity(" for commands | -commands",{
+    bot.user.setActivity("for commands | -commands",{
         type: "WATCHING"
     })
 });
