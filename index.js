@@ -139,8 +139,7 @@ if (command === 'kick') {
                 }
     
             return;
-}
-            
+}        
 
 })
 
