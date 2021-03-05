@@ -56,11 +56,11 @@ bot.on("message", message => {
         .setColor(0x0000ff)
         .setTitle('**Command Directory**')
         .addFields(
-            { name: 'Use this command to see all commands.', value: '**-commands**'},
-            { name: 'Use this command to see the member count of the server the bot it currently in.', value: '**-membercount**'},
-            { name: 'Use this command to see the current time.', value: '**-time**'},
-            { name: `Use this command to kick a member from a discord server.`, value: '**-kick**' },
-            { name: `Use this command to ban a member from a discord server.`, value: '**-ban**' },
+            { name: '**-commands**', value: 'Use this command to see all commands.'},
+            { name: '**-membercount**', value: 'Use this command to see the member count of the server the bot it currently in.'},
+            { name: '**-time**', value: 'Use this command to see the current time.'},
+            { name: `**-kick**`, value: 'Use this command to kick a member from a discord server.' },
+            { name: `**-ban**`, value: 'Use this command to ban a member from a discord server.' },
         )
         .setFooter('Developed by Ghoulz is Just Ok at Coding#8325')
     message.channel.send(commandHelp)
