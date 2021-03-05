@@ -56,8 +56,6 @@ bot.on("message", message => {
         .setColor(0x0000ff)
         .setTitle('**Command Directory**')
         .addFields(
-            { name: 'Use this command to view the help directory.', value: '**-help**' },
-            { name: 'Use this command to view the help directory in direct messages or DMs.', value: '**-dmhelp**'},
             { name: 'Use this command to see all commands.', value: '**-commands**'},
             { name: 'Use this command to see the member count of the server the bot it currently in.', value: '**-membercount**'},
             { name: 'Use this command to see the current time.', value: '**-time**'},
