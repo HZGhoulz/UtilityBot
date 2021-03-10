@@ -160,6 +160,27 @@ if (command === 'clear') {
 
     return;
 }
+if (command === 'clean') {
+    
+    const messageArray = message.content.split(' ');
+    const args = messageArray.slice(1);
+
+    if (!message.member.permissions.has("MANAGE_MESSAGES")) return message.channel.send('You do not have permission to run this command.');
+
+    let deleteAmount;
+
+    if (isNaN(args[0]) || parseInt(args[0]) <= 0) { return message.reply('Please enter a valid number!') }
+
+    if (parseInt(args[0]) > 100) {
+        message.reply('You can only delete 100 messages at one time.')
+    } else{
+        deleteAmount = parseInt(args[0]);
+    }
+
+    message.channel.bulkDelete(deleteAmount +1, true);
+
+    return;
+}
 
 
 
