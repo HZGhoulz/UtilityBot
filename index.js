@@ -189,10 +189,9 @@ if (command === 'mute') {
     if(member.hasPermission(['ADMINISTRATOR']) && !message.member.hasPermission('ADMINISTRATOR')) return;
 
         let mutedRole = message.guild.roles.cache.get('819240702440767488');
-        let verifiedRole = message.guild.roles.cache.get('746765330520604732');
+        
         if(mutedRole) {
             member.roles.add(mutedRole);
-            member.roles.remove(verifiedRole);
             message.channel.send("User was Successfully muted.");
         }
 }
