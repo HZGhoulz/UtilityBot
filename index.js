@@ -156,6 +156,7 @@ if (command === 'clear') {
     }
 
     message.channel.bulkDelete(deleteAmount +1, true);
+    message.channel.send(`**Successfully deleted ***${deleteAmount}*** messages!**`)
 
     return;
 }
