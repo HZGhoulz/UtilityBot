@@ -60,6 +60,8 @@ bot.on("message", message => {
             { name: '**-membercount**', value: 'Use this command to see the member count of the server the bot it currently in.'},
             { name: '**-time**', value: 'Use this command to see the current time.'},
             { name: `**-kick**`, value: 'Use this command to kick a member from a discord server.' },
+            { name: `**-mute**`, value: 'Use this command to mute a member.' },
+            { name: `**-unmute**`, value: 'Use this command to unmute a member.' },
             { name: `**-ban**`, value: 'Use this command to ban a member from a discord server.' },
             { name: '**-clear**', value: 'Use this command to delete an amount of messages with a confirmation message.'},
             { name: '**-clean**', value: 'Use this command to delete an amount of message without a confirmation message.'},
