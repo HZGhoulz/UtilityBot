@@ -189,13 +189,25 @@ if (command === 'mute') {
     if(member.hasPermission(['ADMINISTRATOR']) && !message.member.hasPermission('ADMINISTRATOR')) return;
 
         let mutedRole = message.guild.roles.cache.get('819240702440767488');
-        
+
         if(mutedRole) {
             member.roles.add(mutedRole);
             message.channel.send("User was Successfully muted.");
         }
+    return;
 }
+if (command === 'unmute') {
+    if(!message.member.hasPermission(['ADMINISTRATOR'])) return;
+    let member = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(x => x.user.username === args.slice(0).join(" ") || x.user.username === args[0])
+    if(member.hasPermission(['ADMINISTRATOR']) && !message.member.hasPermission('ADMINISTRATOR')) return;
 
+        let mutedRole = message.guild.roles.cache.get('819240702440767488');
+        
+        if(mutedRole) {
+            member.roles.remove(mutedRole);
+            message.channel.send("User was Successfully Unmuted.");
+        }
+}
 
 
 
