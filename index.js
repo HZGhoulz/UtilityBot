@@ -61,6 +61,8 @@ bot.on("message", message => {
             { name: '**-time**', value: 'Use this command to see the current time.'},
             { name: `**-kick**`, value: 'Use this command to kick a member from a discord server.' },
             { name: `**-ban**`, value: 'Use this command to ban a member from a discord server.' },
+            { name: '**-clear**', value: 'Use this command to delete an amount of messages with a confirmation message.'},
+            { name: '**-clean**', value: 'Use this command to delete an amount of message without a confirmation message.'},
         )
         .setFooter('Developed by Ghoulz is Just Ok at Coding#8325')
     message.channel.send(commandHelp)
@@ -115,7 +117,7 @@ bot.on("message", message => {
                         message.channel.send(newEmbed)
         
                     }else{
-                        message.channel.send('Please specify who you would like to ban.')
+                        message.channel.send(`Please specify who you would like to ban.`)
                     }
         
                 return;
@@ -147,7 +149,7 @@ if (command === 'clear') {
 
     let deleteAmount;
 
-    if (isNaN(args[0]) || parseInt(args[0]) <= 0) { return message.reply('Please enter a valid number!') }
+    if (isNaN(args[0]) || parseInt(args[0]) <= 0) { return message.reply('Please enter a valid number after the command!') }
 
     if (parseInt(args[0]) > 100) {
         message.reply('You can only delete 100 messages at one time.')
@@ -169,7 +171,7 @@ if (command === 'clean') {
 
     let deleteAmount;
 
-    if (isNaN(args[0]) || parseInt(args[0]) <= 0) { return message.reply('Please enter a valid number!') }
+    if (isNaN(args[0]) || parseInt(args[0]) <= 0) { return message.reply('Please enter a valid number after the command!') }
 
     if (parseInt(args[0]) > 100) {
         message.reply('You can only delete 100 messages at one time.')
