@@ -195,7 +195,7 @@ if (command === 'mute') {
         );
 
         if (!mutedRole) {
-            message.channel.send('You need to make a muted role for this discord server. The muted role needs to be named "Muted!". After you make the role you need to go into the text channel permissions and add the Muted! role to the permissions list. Then, go into the permissions of the muted role and turn off the send messages permission. Finally, go to the server settings and drag the Muted! role above the the top of the list. After all of that, run the command again. ')
+            message.channel.send('You need to make a muted role for this discord server. The muted role needs to be named "Muted!". After you make the role you need to go into the text channel permissions and add the Muted! role to the permissions list. Then, go into the permissions of the muted role and turn off the send messages permission. Finally, go to the server settings and drag the Muted! role above the role at the top of the list, making it first. After all of that, run the command again. ')
         }
         if(mutedRole) {
             member.roles.add(mutedRole);
@@ -208,7 +208,9 @@ if (command === 'unmute') {
     let member = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(x => x.user.username === args.slice(0).join(" ") || x.user.username === args[0])
     if(member.hasPermission(['ADMINISTRATOR']) && !message.member.hasPermission('ADMINISTRATOR')) return;
 
-        let mutedRole = message.guild.roles.cache.get('819240702440767488');
+    let mutedRole = message.guild.roles.cache.find(
+        (role) => role.name === 'Muted!'
+    );
         
         if(mutedRole) {
             member.roles.remove(mutedRole);
