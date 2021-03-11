@@ -240,10 +240,6 @@ if (command === 'warn') {
             message.channel.send(warn);
         }
 
-        fs.writeFile("./warns.json", JSON.stringify(warns), err => {
-            if (err) console.log(err);
-        });
-
     
     
     })
