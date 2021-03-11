@@ -218,10 +218,8 @@ if (command === 'unmute') {
         }
 }
 if (command === 'warn') {
-    const punishment = require('./modles/ModSchema');
 
 
-    module.exports.run = async (bot, message, args) => {
         let toWarn = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(x => x.user.username.toLocaleLowerCase() === args.slice(0).join(" ") || x.user.username === args[0]);
 
         if (!message.member.hasPermission("ADMINISTRATOR")) {
@@ -266,7 +264,7 @@ if (command === 'warn') {
 }
 
 
-})
+)
 
 // this is the bots token btw ODE2NjYyNTExNDY5NzIzNjY5.YD-OOw.CybHLmoxD9uxs9LQVM9qhg54OLg
 bot.login(process.env.token);
