@@ -238,11 +238,21 @@ if (command === 'warn') {
             .setColor(0xff0000)
             .setDescription(`${user} has been warned by ${message.author}.`)
             message.channel.send(warn);
-        }
 
+    const warnEmbedPlayer = new Discord.MessageEmbed()
+    .setTitle("You have been warned!")
+    .addFields(
+        { name: 'Warned By:', value: `${message.author.username}`},
+        { name: 'Reason:', value: reason },
+        )
+    .setFooter('Developed By Ghoulz is Good At Coding#8325.')
+
+    message.target.send(warnEmbedPlayer);
+return;
+}
     
-    
-    })
+
+}) 
 
 
 // this is the bots token btw ODE2NjYyNTExNDY5NzIzNjY5.YD-OOw.CybHLmoxD9uxs9LQVM9qhg54OLg
