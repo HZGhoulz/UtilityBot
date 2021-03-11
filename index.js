@@ -235,6 +235,7 @@ if (command === 'warn') {
 
         const warnEmbedPlayer = new Discord.MessageEmbed()
         .setTitle("You have been warned!")
+        .setColor(0xff0000)
         .addFields(
             { name: 'Warned By:', value: `${message.author.username}`},
             { name: 'Reason:', value: 'Breaking one or more rules. If continued, a more severe punishment will be given!' },
@@ -242,7 +243,7 @@ if (command === 'warn') {
         .setFooter('Developed By Ghoulz is Good At Coding#8325.')
             
         user.send(warnEmbedPlayer)
-
+        user.send(`<@${user.id}>`)
 return;
 }
     
