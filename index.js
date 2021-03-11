@@ -217,7 +217,53 @@ if (command === 'unmute') {
             message.channel.send("User was Successfully Unmuted.");
         }
 }
+if (command === 'warn') {
+    const punishment = require('./modles/ModSchema');
 
+
+    module.exports.run = async (bot, message, args) => {
+        let toWarn = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(x => x.user.username.toLocaleLowerCase() === args.slice(0).join(" ") || x.user.username === args[0]);
+
+        if (!message.member.hasPermission("ADMINISTRATOR")) {
+            message.reply("You do not have permissions to use this command.")
+        }
+
+        if(message.author.id === toWarn.id) return; 
+
+        let reason = args.slice(1).join(" ")
+
+        if(!reason) return message.channel.send('No Reason Given.')
+
+        let data = await punishment.findOne({
+            GuildID: message.guild.id,
+            UserID: toWarn.id
+        });
+
+        if(data) {
+            data.Punishment.unshift({
+                punishType: 'Warn',
+                Moderator: message.author.id,
+                Reason: reason,
+            });
+            data.save();
+
+            message.channel.send(`Warned ${toWarn} for ${reason}.`)
+        } else if (!data) {
+            let newData = new punishment({
+                GuildID: message.guild.id,
+                UserID: toWarn.id,
+                Punishment: [{
+                    punishType: 'Warn',
+                    Moderator: message.author.id,
+                    Reason: reason,
+                }, ],
+            });
+            newData.save();
+
+            message.channel.send(`Warned ${toWarn} for ${reason}.`)
+        }
+    }
+}
 
 
 })
