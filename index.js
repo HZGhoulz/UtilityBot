@@ -68,8 +68,8 @@ bot.on("message", message => {
             { name: `**-mute**`, value: 'Use this command to mute a member.' },
             { name: `**-unmute**`, value: 'Use this command to unmute a member.' },
             { name: `**-ban**`, value: 'Use this command to ban a member from a discord server.' },
-            { name: '**-clear**', value: 'Use this command to delete an amount of messages with a confirmation message.'},
-            { name: '**-clean**', value: 'Use this command to delete an amount of message without a confirmation message.'},
+            { name: '**-clear**', value: 'Use this command to delete an amount of messages with a confirmation message. (You can only delete less that 99 messages at a time.)'},
+            { name: '**-clean**', value: 'Use this command to delete an amount of message without a confirmation message. (You can only delete less that 99 messages at a time.)'},
         )
         .setFooter('Developed by Ghoulz is Good at Coding#8325')
     message.channel.send(commandHelp)
