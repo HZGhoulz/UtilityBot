@@ -245,7 +245,7 @@ if (command === 'warn') {
         .addField("Reason:" , reason)
         .setFooter('Developed by Ghoulz is Just Ok at Coding#8325.')
         
-        user.send(userwarnEmbed)
+        message.user.send(userwarnEmbed)
 
         message.channel.send('User has been warned!')
          logchannel.send(warnuserEmbed)
