@@ -236,7 +236,7 @@ if (command === 'warn') {
         const reason = args.slice(1).join(" ");
             const warn = new Discord.MessageEmbed()
             .setColor(0xff0000)
-            .setDescription(`${user} has been warned by ${message.author}. (**${warns[user.id].warnCount}**/**5**) \nReason: **${reason != "" ? reason : "-"}**`);
+            .setDescription(`${user} has been warned by ${message.author}.`)
             message.channel.send(warn);
         }
 
