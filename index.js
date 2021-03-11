@@ -240,15 +240,8 @@ if (command === 'warn') {
             { name: 'Reason:', value: `${reason}.` },
             )
         .setFooter('Developed By Ghoulz is Good At Coding#8325.')
-    
-        const reason = args.slice(1).join(" ");
-            const warn = new Discord.MessageEmbed()
-            .setColor(0xff0000)
-            .setDescription(`${user} has been warned by ${message.author}.`)
             
-            message.channel.send(warn)
-            
-            message(warnEmbedPlayer).mentions.send(warnEmbedPlayer)
+            message.mentions.send(warnEmbedPlayer)
 return;
 }
     
