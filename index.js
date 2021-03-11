@@ -218,53 +218,43 @@ if (command === 'unmute') {
         }
 }
 if (command === 'warn') {
+    module.exports.run = async (client, message, args) => {
+        const logchannel = message.guild.channels.cache.find(ch => ch.name === "logchannel")
+        if (!logchannel) return message.channel.send('No Log Channel Found. Please Create a Text Channel Exactly Named "logchannel".')
 
+        let perms = message.member.hasPermission("ADMINISTRATOR")
+        if (!perms) message.channel.send('You do not have the permission to run this command.')
 
-        let toWarn = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(x => x.user.username.toLocaleLowerCase() === args.slice(0).join(" ") || x.user.username === args[0]);
-
-        if (!message.member.hasPermission("ADMINISTRATOR")) {
-            message.reply("You do not have permissions to use this command.")
-        }
-
-        if(message.author.id === toWarn.id) return; 
-
+        let user = message.mentions.member.first()
+        if (!user) return message.channel.send('Please List a Real User.')
         let reason = args.slice(1).join(" ")
+        if (!reason) reason = "Not Specified."
 
-        if(!reason) return message.channel.send('No Reason Given.')
+        const warnuserEmbed = new Discord.MessageEmbed()
+        .setTitle(`User Warned | + ${user.user.tag}`)
+        .setColor(0xff0000)
+        .addField("Warned By:" , `${message.author}` )
+        .addField("Reason:" , reason)
+        .setFooter('Developed by Ghoulz is Just Ok at Coding#8325.')
 
-        let data = punishment.findOne({
-            GuildID: message.guild.id,
-            UserID: toWarn.id
-        });
 
-        if(data) {
-            data.Punishment.unshift({
-                punishType: 'Warn',
-                Moderator: message.author.id,
-                Reason: reason,
-            });
-            data.save();
+        const userwarnEmbed = new Discord.MessageEmbed()
+        .setTitle(`You Have Beened Warned!`)
+        .setColor(0xff0000)
+        .addField("Warned By:" , `${message.author}` )
+        .addField("Reason:" , reason)
+        .setFooter('Developed by Ghoulz is Just Ok at Coding#8325.')
+        
+        user.send(userwarnEmbed)
 
-            message.channel.send(`Warned ${toWarn} for ${reason}.`)
-        } else if (!data) {
-            let newData = new punishment({
-                GuildID: message.guild.id,
-                UserID: toWarn.id,
-                Punishment: [{
-                    punishType: 'Warn',
-                    Moderator: message.author.id,
-                    Reason: reason,
-                }, ],
-            });
-            newData.save();
-
-            message.channel.send(`Warned ${toWarn} for ${reason}.`)
-        }
+        message.channel.send('User has been warned!')
+         logchannel.send(warnuserEmbed)
     }
+    return;
 }
 
 
-)
+})
 
 // this is the bots token btw ODE2NjYyNTExNDY5NzIzNjY5.YD-OOw.CybHLmoxD9uxs9LQVM9qhg54OLg
 bot.login(process.env.token);
