@@ -233,21 +233,22 @@ if (command === 'warn') {
         if(target.roles.cache.has(mutedroleid)) return message.reply("You cannot warn muted members.");
         if(!mutedrole) return message.reply("Couldn't find the Muted role.");
 
+        const warnEmbedPlayer = new Discord.MessageEmbed()
+        .setTitle("You have been warned!")
+        .addFields(
+            { name: 'Warned By:', value: `${message.author.username}`},
+            { name: 'Reason:', value: reason },
+            )
+        .setFooter('Developed By Ghoulz is Good At Coding#8325.')
+    
         const reason = args.slice(1).join(" ");
             const warn = new Discord.MessageEmbed()
             .setColor(0xff0000)
             .setDescription(`${user} has been warned by ${message.author}.`)
-            message.channel.send(warn);
-
-    const warnEmbedPlayer = new Discord.MessageEmbed()
-    .setTitle("You have been warned!")
-    .addFields(
-        { name: 'Warned By:', value: `${message.author.username}`},
-        { name: 'Reason:', value: reason },
-        )
-    .setFooter('Developed By Ghoulz is Good At Coding#8325.')
-
-    message.mentions.members.send(warnEmbedPlayer);
+            
+            message.channel.send(warn)
+            
+            message(warnEmbedPlayer).mentions.send(warnEmbedPlayer)
 return;
 }
     
