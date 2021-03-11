@@ -237,7 +237,7 @@ if (command === 'warn') {
         .setTitle("You have been warned!")
         .addFields(
             { name: 'Warned By:', value: `${message.author.username}`},
-            { name: 'Reason:', value: reason },
+            { name: 'Reason:', value: `${reason}.` },
             )
         .setFooter('Developed By Ghoulz is Good At Coding#8325.')
     
