@@ -232,7 +232,7 @@ if (command === 'warn') {
 
         if(!reason) return message.channel.send('No Reason Given.')
 
-        let data = await punishment.findOne({
+        let data = punishment.findOne({
             GuildID: message.guild.id,
             UserID: toWarn.id
         });
