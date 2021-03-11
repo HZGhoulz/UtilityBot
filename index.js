@@ -63,6 +63,7 @@ bot.on("message", message => {
             { name: '**-commands**', value: 'Use this command to see all commands.'},
             { name: '**-membercount**', value: 'Use this command to see the member count of the server the bot it currently in.'},
             { name: '**-time**', value: 'Use this command to see the current time.'},
+            { name: '**-warn**', value: 'Use this command to warn a user.'},
             { name: `**-kick**`, value: 'Use this command to kick a member from a discord server.' },
             { name: `**-mute**`, value: 'Use this command to mute a member.' },
             { name: `**-unmute**`, value: 'Use this command to unmute a member.' },
@@ -228,10 +229,8 @@ if (command === 'warn') {
         const mutedroleid = message.guild.roles.cache.find(
             (role) => role.name === 'Muted!');
         const mutedrole = mutedroleid
-        if (!user) return message.reply("Please specify someone you want to warn. **!warn <user> [reason]**");
+        if (!user) return message.reply("Please specify someone you want to warn. **!warn <user>**");
         const target = message.guild.members.cache.get(user.id);
-        if(target.roles.cache.has(mutedroleid)) return message.reply("You cannot warn muted members.");
-        if(!mutedrole) return message.reply("Couldn't find the Muted role.");
 
         const warnEmbedPlayer = new Discord.MessageEmbed()
         .setTitle("You have been warned!")
