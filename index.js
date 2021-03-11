@@ -190,7 +190,7 @@ if (command === 'mute') {
     let member = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(x => x.user.username === args.slice(0).join(" ") || x.user.username === args[0])
     if(member.hasPermission(['ADMINISTRATOR']) && !message.member.hasPermission('ADMINISTRATOR')) return;
     
-        let mutedRole = message.guild.roles.cache.get.name('Muted!')
+        let mutedRole = message.guild.roles.fetch.name('Muted!')
 
         if (!mutedRole) {
             message.channel.send('You need to make a muted role for this discord server. The muted role needs to be named "Muted!". After you make the role you need to go into the text channel permissions and add the Muted! role to the permissions list. Then, go into the permissions of the muted role and turn off the send messages permission. Finally, go to the server settings and drag the Muted! role above the the top of the list. After all of that, run the command again. ')
