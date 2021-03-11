@@ -241,9 +241,12 @@ if (command === 'warn') {
             { name: 'Reason:', value: 'Breaking one or more rules. If continued, a more severe punishment will be given!' },
             )
         .setFooter('Developed By Ghoulz is Good At Coding#8325.')
-            
+        
+        message.channel.send("User has been warned!")
+
         user.send(warnEmbedPlayer)
         user.send(`<@${user.id}>`)
+        
 return;
 }
     
