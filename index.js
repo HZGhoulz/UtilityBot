@@ -241,7 +241,7 @@ if (command === 'warn') {
             )
         .setFooter('Developed By Ghoulz is Good At Coding#8325.')
             
-            Discord.MessageMentions.send(warnEmbedPlayer)
+            Discord.MessageMentions.message(warnEmbedPlayer)
 return;
 }
     
