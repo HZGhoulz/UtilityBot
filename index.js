@@ -66,7 +66,7 @@ bot.on("message", message => {
             { name: '**-clear**', value: 'Use this command to delete an amount of messages with a confirmation message.'},
             { name: '**-clean**', value: 'Use this command to delete an amount of message without a confirmation message.'},
         )
-        .setFooter('Developed by Ghoulz is Just Ok at Coding#8325')
+        .setFooter('Developed by Ghoulz is Good at Coding#8325')
     message.channel.send(commandHelp)
     return;
     }
