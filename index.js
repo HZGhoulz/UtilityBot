@@ -229,7 +229,7 @@ if (command === 'warn') {
         const mutedroleid = message.guild.roles.cache.find(
             (role) => role.name === 'Muted!');
         const mutedrole = mutedroleid
-        if (!user) return message.reply("Please specify someone you want to warn. **!warn <user>**");
+        if (!user) return message.reply("Please specify someone you want to warn. **-warn <user>**");
         const target = message.guild.members.cache.get(user.id);
 
         const warnEmbedPlayer = new Discord.MessageEmbed()
