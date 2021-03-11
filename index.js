@@ -227,6 +227,7 @@ if (command === 'warn') {
         const user = message.mentions.users.first();
         const mutedroleid = message.guild.roles.cache.find(
             (role) => role.name === 'Muted!');
+        const mutedrole = mutedroleid
         if (!user) return message.reply("Please specify someone you want to warn. **!warn <user> [reason]**");
         const target = message.guild.members.cache.get(user.id);
         if(target.roles.cache.has(mutedroleid)) return message.reply("You cannot warn muted members.");
