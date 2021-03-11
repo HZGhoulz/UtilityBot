@@ -234,33 +234,6 @@ if (command === 'warn') {
         if(!mutedrole) return message.reply("Couldn't find the Muted role.");
 
         const reason = args.slice(1).join(" ");
-
-        if (!warns[user.id]) {
-            warns[user.id] = {
-                warnCount: 1
-            }
-        } else {
-            warns[user.id].warnCount += 1;
-        }
-
-        if(warns[user.id].warnCount >= 5) {
-            const mute = new Discord.MessageEmbed()
-            .setColor(0xff0000)
-            .setDescription(`${user} has been muted. (**5**/**5**)\nReason: **${reason != "" ? reason : "-"}**`);
-            message.channel.send(mute);
-            
-            target.roles.add(mutedrole.id);
-            warns[user.id].warnCount = 0;
-    
-            setTimeout(() => {
-                target.roles.remove(mutedrole.id);
-                const unmute = new Discord.MessageEmbed()
-                .setColor("#00aaaa")
-                .setDescription(`${user} has been unmuted.`);
-                message.channel.send(unmute);
-            }, 1000 * 900);
-
-        } else {
             const warn = new Discord.MessageEmbed()
             .setColor(0xff0000)
             .setDescription(`${user} has been warned by ${message.author}. (**${warns[user.id].warnCount}**/**5**) \nReason: **${reason != "" ? reason : "-"}**`);
@@ -271,10 +244,10 @@ if (command === 'warn') {
             if (err) console.log(err);
         });
 
-    }
-    //next command
+    
+    
+    })
 
-})
 
 // this is the bots token btw ODE2NjYyNTExNDY5NzIzNjY5.YD-OOw.CybHLmoxD9uxs9LQVM9qhg54OLg
 bot.login(process.env.token);
