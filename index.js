@@ -216,41 +216,7 @@ if (command === 'unmute') {
             member.roles.remove(mutedRole);
             message.channel.send("User was Successfully Unmuted.");
         }
-}
-if (command === 'warn') {
-    module.exports.run = async (client, message, args) => {
-        const logchannel = message.guild.channels.cache.find(ch => ch.name === "logchannel")
-        if (!logchannel) return message.channel.send('No Log Channel Found. Please Create a Text Channel Exactly Named "logchannel".')
-
-        let perms = message.member.hasPermission("ADMINISTRATOR")
-        if (!perms) message.channel.send('You do not have the permission to run this command.')
-
-        let user = message.mentions.member.first()
-        if (!user) return message.channel.send('Please List a Real User.')
-        let reason = args.slice(1).join(" ")
-        if (!reason) reason = "Not Specified."
-
-        const warnuserEmbed = new Discord.MessageEmbed()
-        .setTitle(`User Warned | + ${user.user.tag}`)
-        .setColor(0xff0000)
-        .addField("Warned By:" , `${message.author}` )
-        .addField("Reason:" , reason)
-        .setFooter('Developed by Ghoulz is Just Ok at Coding#8325.')
-
-
-        const userwarnEmbed = new Discord.MessageEmbed()
-        .setTitle(`You Have Beened Warned!`)
-        .setColor(0xff0000)
-        .addField("Warned By:" , `${message.author}` )
-        .addField("Reason:" , reason)
-        .setFooter('Developed by Ghoulz is Just Ok at Coding#8325.')
-        
-        message.user.send(userwarnEmbed)
-
-        message.channel.send('User has been warned!')
-         logchannel.send(warnuserEmbed)
-    }
-    return;
+        return;
 }
 
 
