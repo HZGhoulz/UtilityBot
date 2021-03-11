@@ -247,7 +247,7 @@ if (command === 'warn') {
         )
     .setFooter('Developed By Ghoulz is Good At Coding#8325.')
 
-    message.target.send(warnEmbedPlayer);
+    message.mentions.send(warnEmbedPlayer);
 return;
 }
     
