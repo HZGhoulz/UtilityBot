@@ -22,39 +22,7 @@ bot.on("message", message => {
 
     if(!message.content.startsWith(prefix))return;
 
-    
-    if (command === 'help') {
-        const helpDirectory = new Discord.MessageEmbed()
-        .setColor(0xFFA500)
-        .setTitle('Help Directory')
-        .addFields(
-            { name: 'Direct Messages', value: 'Use the command "-2" to learn more.'},
-        )
-        .setFooter('Developed by Ghoulz is Just Ok at Coding#8325')
-    message.channel.send(helpDirectory);
-    return;
-    }
-    if (command === '2') {
-        const DirectMessageHelp = new Discord.MessageEmbed()
-        .setColor(0xff0000)
-        .setTitle('Direct Messages')
-        .setDescription('To contact a specific admin or staff member privately, please feel free to directly message them.')
-        .setFooter('Developed by Ghoulz is Just Ok at Coding#8325')
-    message.channel.send(DirectMessageHelp);
-    return;
-    }
-    if (command === 'dmhelp') {
-        const dmEmbed = new Discord.MessageEmbed()
-        .setColor(0xFFA500)
-        .setTitle('Help Directory')
-        .addFields(
-            { name: 'Direct Messages', value: 'Use the command "-2" to learn more.'},
-        )
-        .setFooter('Developed by Ghoulz is Just Ok at Coding#8325')
-    message.author.send(dmEmbed)
-    message.channel.send(`Check for the dm from <@816662511469723669>, ${message.author}.`)
-    return;
-    }
+
     if (command === 'commands') {
         const commandHelp = new Discord.MessageEmbed()
         .setColor(0x0000ff)
