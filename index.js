@@ -223,5 +223,5 @@ return;
 }) 
 
 
-// this is the bots token btw ODE2NjYyNTExNDY5NzIzNjY5.YD-OOw.CybHLmoxD9uxs9LQVM9qhg54OLg
+
 bot.login(process.env.token);
