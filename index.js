@@ -89,7 +89,11 @@ bot.on("message", message => {
                         )
                         .setFooter('Developed by Ghoulz is Good At Coding#8325.')
 
-                        dude.send(banEmbed)
+                        try {
+                            dude.send(banEmbed)
+                        } catch (error) {
+                            if (error) return message.channel.send("I could not send a message to the user you mentioned!")
+                        }
                     }
         
                 return;
