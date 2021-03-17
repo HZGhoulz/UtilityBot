@@ -201,8 +201,8 @@ if (command === 'warn') {
     
     if (!args[1]) return message.channel.send('You did not provide a reason!')
 
-    let reason = args[1]
-    let moderator = message.author
+    let reason = args.join(" ").slice(22);
+    let moderator = message.author;
 
     const playertowarnEmbed = new Discord.MessageEmbed()
     .setTitle('You have been warned!')
