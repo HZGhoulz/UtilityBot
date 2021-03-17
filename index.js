@@ -65,7 +65,7 @@ bot.on("message", message => {
         if (!message.member.permissions.has("BAN_MEMBERS")) return message.channel.send('You do not have permision to run this command!')
         let dude = message.mentions.users.first()
         if (!dude) return message.channel.send('You did not list a user to ban! Example: -ban @Ghoulz#8325 *Reason*')
-    
+
         if (!args[1]) return message.channel.send('You did not provide a reason! Example: -ban @Ghoulz#8325 *Reason*')
 
     let reason4ban = args.join(" ").slice(22);
