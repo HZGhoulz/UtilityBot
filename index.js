@@ -95,7 +95,7 @@ bot.on("message", message => {
                 return;
                 }
 if (command === 'kick') {
-    if (!message.member.permissions.has("BAN_MEMBERS")) return message.channel.send('You do not have permision to run this command!')
+    if (!message.member.permissions.has("KICK_MEMBERS")) return message.channel.send('You do not have permision to run this command!')
     let kickbro = message.mentions.users.first()
     if (!kickbro) return message.channel.send('You did not list a user to kick! Example: -kick @Ghoulz#8325 *Reason*')
 
@@ -105,7 +105,7 @@ let reason4kick = args.join(" ").slice(22);
 let moderator4kick = message.author;
 
                 if(kickbro){
-                    const kickmemberTarget = message.guild.members.cache.get(member.id);
+                    const kickmemberTarget = kickbro;
                     kickmemberTarget.kick();
                     const newkickbroEmbed = new Discord.MessageEmbed()
                     .setColor(0xff0000)
