@@ -81,7 +81,7 @@ bot.on("message", message => {
                         message.channel.send(newEmbed)
 
                         const banEmbed = new Discord.MessageEmbed()
-                        .setTitle(`You have been banned from: ${message.guild.name}!`)
+                        .setTitle(`You have been banned from: **${message.guild.name}**!`)
                         .setColor(0xFF0000)
                         .addFields(
                             { name: '**Reason:**', value: `${reason4ban}` },
