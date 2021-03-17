@@ -72,7 +72,7 @@ bot.on("message", message => {
     let moderator4ban = message.author;
 
                     if(dude){
-                        const memberTarget = message.mentions.guild.members.cache.get(dude.id);
+                        const memberTarget = message.mentions.members.get(dude.id)
                         memberTarget.ban();
                         const newEmbed = new Discord.MessageEmbed()
                         .setColor(0xff0000)
@@ -105,7 +105,7 @@ let reason4kick = args.join(" ").slice(22);
 let moderator4kick = message.author;
 
                 if(kickbro){
-                    const kickmemberTarget = message.mentions.guild.members.get(kickbro.id)
+                    const kickmemberTarget = message.mentions.members.get(kickbro.id)
                     kickmemberTarget.kick()
                     const newkickbroEmbed = new Discord.MessageEmbed()
                     .setColor(0xff0000)
