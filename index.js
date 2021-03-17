@@ -210,6 +210,7 @@ if (command === 'warn') {
     .addFields(
         { name: '**Reason:**', value: `${reason}` },
         { name: '**Moderator**', value: `${moderator}`},
+        { name: '**Moderator:**', value: `${moderator}`},
     
     )
     .setFooter("Developed by Ghouz is Good at Coding#8325.")
