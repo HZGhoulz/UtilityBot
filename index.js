@@ -126,7 +126,11 @@ let moderator4kick = message.author;
                     )
                     .setFooter('Developed by Ghoulz is Good At Coding#8325.')
 
-                    kickbro.send(kickbroEmbed)
+                    try {
+                        kickbro.send(kickbroEmbed)
+                    } catch (error) {
+                        if (error) return message.channel.send('I could not send a message to the user you mentioned!')
+                    }
                 }
     
             return;
