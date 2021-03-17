@@ -194,29 +194,30 @@ if (command === 'unmute') {
         return;
 }
 if (command === 'warn') {
-    if(!message.member.hasPermission("MUTE_MEMBERS")) return message.reply("You do not have permission to do that.");
-        const user = message.mentions.users.first();
-        const mutedroleid = message.guild.roles.cache.find(
-            (role) => role.name === 'Muted!');
-        const mutedrole = mutedroleid
-        if (!user) return message.reply("Please specify someone you want to warn. **-warn <user>**");
-        const target = message.guild.members.cache.get(user.id);
+    if (!message.member.permissions.has("MUTE_MEMBERS")) return message.channel.send('You do not have permision to run this command!')
 
-        const warnEmbedPlayer = new Discord.MessageEmbed()
-        .setTitle("You have been warned!")
-        .setColor(0xff0000)
-        .addFields(
-            { name: 'Warned By:', value: `${message.author.username}`},
-            { name: 'Reason:', value: 'Breaking one or more rules. If continued, a more severe punishment will be given!' },
-            )
-        .setFooter('Developed by Ghoulz is Good at Coding#8325.')
-        
-        message.channel.send("User has been warned!")
+    let user = message.mentions.users.first()
+    if (!user) return message.channel.send('You did not list a user to mute!')
+    
+    if (!args) return message.channel.send('You did not provide a reason!')
 
-        user.send(warnEmbedPlayer)
-        user.send(`<@${user.id}>`)
-        
-return;
+    let reason = args
+    let moderator = message.author
+
+    const playertowarnEmbed = new Discord.MessageEmbed()
+    .setTitle('You have been warned!')
+    .setColor(0xFF0000)
+    .addFields(
+        { name: '**Reason:**', value: `${reason}` },
+        { name: '**Moderator**', value: `${moderator}`},
+    
+    )
+    .setFooter("Developed by Ghouz is Good at Coding#8325.")
+
+    message.channel.send(`The user: ${user} has been warned for: ${reason}!`)
+    user.send(playertowarnEmbed)
+
+    return;
 }
     
 
