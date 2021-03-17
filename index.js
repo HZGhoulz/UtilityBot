@@ -203,10 +203,9 @@ if (command === 'warn') {
 
     let reason = args.join(" ").slice(22);
     let moderator = message.author;
-    let server = message.guild.id
 
     const playertowarnEmbed = new Discord.MessageEmbed()
-    .setTitle(`You have been warned in **${server}**!`)
+    .setTitle(`You have been warned in **${message.guild.name}**!`)
     .setColor(0xFF0000)
     .addFields(
         { name: '**Reason:**', value: `${reason}` },
@@ -215,7 +214,7 @@ if (command === 'warn') {
     )
     .setFooter("Developed by Ghouz is Good at Coding#8325.")
 
-    message.channel.send(`The user: ${user} has been warned for: ${reason}!`)
+    message.channel.send(`The user: ${user} has been warned for: ${reason}`)
     user.send(playertowarnEmbed)
 
     return;
