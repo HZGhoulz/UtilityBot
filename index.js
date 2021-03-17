@@ -209,7 +209,6 @@ if (command === 'warn') {
     .setColor(0xFF0000)
     .addFields(
         { name: '**Reason:**', value: `${reason}` },
-        { name: '**Moderator**', value: `${moderator}`},
         { name: '**Moderator:**', value: `${moderator}`},
     
     )
