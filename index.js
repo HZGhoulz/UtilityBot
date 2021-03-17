@@ -76,12 +76,12 @@ bot.on("message", message => {
                         memberTarget.ban();
                         const newEmbed = new Discord.MessageEmbed()
                         .setColor(0xff0000)
-                        .setDescription(`:white_check_mark: The user: ${dude} has been banned from: ${message.guild.name} for the reason of ${reason4ban}`)
+                        .setDescription(`:white_check_mark: The user: ${dude} has been banned from: **${message.guild.name}** for the reason of **${reason4ban}**`)
                         
                         message.channel.send(newEmbed)
 
                         const banEmbed = new Discord.MessageEmbed()
-                        .setTitle(`You have been banned from: ${message.guild.name}`)
+                        .setTitle(`You have been banned from: ${message.guild.name}!`)
                         .setColor(0xFF0000)
                         .addFields(
                             { name: '**Reason:**', value: `${reason4ban}` },
@@ -109,12 +109,12 @@ let moderator4kick = message.author;
                     kickmemberTarget.kick()
                     const newkickbroEmbed = new Discord.MessageEmbed()
                     .setColor(0xff0000)
-                    .setDescription(`:white_check_mark: The user: ${kickbro} has been kicked from: ${message.guild.name} for the reason of ${reason4kick}`)
+                    .setDescription(`:white_check_mark: The user: ${kickbro} has been kicked from: **${message.guild.name}** for the reason of **${reason4kick}**`)
                     
                     message.channel.send(newkickbroEmbed)
 
                     const kickbroEmbed = new Discord.MessageEmbed()
-                    .setTitle(`You have been kicked from: **${message.guild.name}**`)
+                    .setTitle(`You have been kicked from: **${message.guild.name}!**`)
                     .setColor(0xFF0000)
                     .addFields(
                         { name: '**Reason:**', value: `${reason4kick}` },
