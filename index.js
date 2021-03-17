@@ -92,7 +92,7 @@ bot.on("message", message => {
                         try {
                             dude.send(banEmbed)
                         } catch (error) {
-                            if (error) return message.channel.send("I could not send a message to the user you mentioned!")
+                            console.error();
                         }
                     }
         
@@ -129,7 +129,7 @@ let moderator4kick = message.author;
                     try {
                         kickbro.send(kickbroEmbed)
                     } catch (error) {
-                        if (error) return message.channel.send('I could not send a message to the user you mentioned!')
+                        console.error();
                     }
                 }
     
