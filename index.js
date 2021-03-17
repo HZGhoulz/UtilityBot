@@ -199,7 +199,7 @@ if (command === 'warn') {
     let user = message.mentions.users.first()
     if (!user) return message.channel.send('You did not list a user to warn!')
     
-    if (!args) return message.channel.send('You did not provide a reason!')
+    if (!args[2]) return message.channel.send('You did not provide a reason!')
 
     let reason = args[2]
     let moderator = message.author
