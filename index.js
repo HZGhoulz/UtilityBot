@@ -97,7 +97,7 @@ bot.on("message", message => {
 if (command === 'kick') {
     if (!message.member.permissions.has("BAN_MEMBERS")) return message.channel.send('You do not have permision to run this command!')
     let kickbro = message.mentions.users.first()
-    if (!kickbro) return message.channel.send('You did not list a user to ban! Example: -kick @Ghoulz#8325 *Reason*')
+    if (!kickbro) return message.channel.send('You did not list a user to kick! Example: -kick @Ghoulz#8325 *Reason*')
 
     if (!args[1]) return message.channel.send('You did not provide a reason! Example: -kick @Ghoulz#8325 *Reason*')
 
