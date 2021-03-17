@@ -197,11 +197,11 @@ if (command === 'warn') {
     if (!message.member.permissions.has("MUTE_MEMBERS")) return message.channel.send('You do not have permision to run this command!')
 
     let user = message.mentions.users.first()
-    if (!user) return message.channel.send('You did not list a user to mute!')
+    if (!user) return message.channel.send('You did not list a user to warn!')
     
     if (!args) return message.channel.send('You did not provide a reason!')
 
-    let reason = args
+    let reason = args[2]
     let moderator = message.author
 
     const playertowarnEmbed = new Discord.MessageEmbed()
