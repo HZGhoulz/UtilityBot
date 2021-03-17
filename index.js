@@ -109,7 +109,7 @@ let moderator4kick = message.author;
                     kickmemberTarget.kick()
                     const newkickbroEmbed = new Discord.MessageEmbed()
                     .setColor(0xff0000)
-                    .setDescription(`:white_check_mark: The user: ${dude} has been kicked from: ${message.guild.name} for the reason of ${reason4ban}`)
+                    .setDescription(`:white_check_mark: The user: ${kickbro} has been kicked from: ${message.guild.name} for the reason of ${reason4ban}`)
                     
                     message.channel.send(newkickbroEmbed)
 
