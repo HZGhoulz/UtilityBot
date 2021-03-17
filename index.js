@@ -197,9 +197,9 @@ if (command === 'warn') {
     if (!message.member.permissions.has("MUTE_MEMBERS")) return message.channel.send('You do not have permision to run this command!')
 
     let user = message.mentions.users.first()
-    if (!user) return message.channel.send('You did not list a user to warn!')
+    if (!user) return message.channel.send('You did not list a user to warn! Example: -warn @Ghoulz#8325 *Reason*')
     
-    if (!args[1]) return message.channel.send('You did not provide a reason!')
+    if (!args[1]) return message.channel.send('You did not provide a reason! Example: -warn @Ghoulz#8325 *Reason*')
 
     let reason = args.join(" ").slice(22);
     let moderator = message.author;
