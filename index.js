@@ -72,7 +72,7 @@ bot.on("message", message => {
     let moderator4ban = message.author;
 
                     if(dude){
-                        const memberTarget = message.guild.members.cache.get(member.id);
+                        const memberTarget = message.mentions.guild.members.cache.get(member.id);
                         memberTarget.ban();
                         const newEmbed = new Discord.MessageEmbed()
                         .setColor(0xff0000)
@@ -105,8 +105,8 @@ let reason4kick = args.join(" ").slice(22);
 let moderator4kick = message.author;
 
                 if(kickbro){
-                    const kickmemberTarget = kickbro;
-                    kickmemberTarget.kick();
+                    const kickmemberTarget = message.mentions.guild.members.cache.get(member.id);
+                    kickmemberTarget.kick()
                     const newkickbroEmbed = new Discord.MessageEmbed()
                     .setColor(0xff0000)
                     .setDescription(`:white_check_mark: The user: ${dude} has been kicked from: ${message.guild.name} for the reason of ${reason4ban}`)
