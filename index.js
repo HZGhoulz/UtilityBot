@@ -201,7 +201,7 @@ if (command === 'warn') {
     
     if (!args[1]) return message.channel.send('You did not provide a reason!')
 
-    let reason = args[2]
+    let reason = args[1]
     let moderator = message.author
 
     const playertowarnEmbed = new Discord.MessageEmbed()
