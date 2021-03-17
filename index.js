@@ -62,61 +62,71 @@ bot.on("message", message => {
     return;
     }
     if (command === 'ban') {
-        if(!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send('You do not have permission to run this command.')
-                    const member = message.mentions.users.first();
-                    if(member){
+        if (!message.member.permissions.has("BAN_MEMBERS")) return message.channel.send('You do not have permision to run this command!')
+        let dude = message.mentions.users.first()
+        if (!dude) return message.channel.send('You did not list a user to ban! Example: -ban @Ghoulz#8325 *Reason*')
+    
+        if (!args[1]) return message.channel.send('You did not provide a reason! Example: -ban @Ghoulz#8325 *Reason*')
+
+    let reason4ban = args.join(" ").slice(22);
+    let moderator4ban = message.author;
+
+                    if(dude){
                         const memberTarget = message.guild.members.cache.get(member.id);
                         memberTarget.ban();
                         const newEmbed = new Discord.MessageEmbed()
                         .setColor(0xff0000)
-                        .setDescription(':white_check_mark: The user has been banned.')
+                        .setDescription(`:white_check_mark: The user: ${dude} has been banned from: ${message.guild.name} for the reason of ${reason4ban}`)
                         
                         message.channel.send(newEmbed)
-        
-                    }else{
-                        message.channel.send('Please specify who you would like to ban.')
+
+                        const banEmbed = new Discord.MessageEmbed()
+                        .setTitle(`You have been banned from: ${message.guild.name}`)
+                        .setColor(0xFF0000)
+                        .addFields(
+                            { name: '**Reason:**', value: `${reason4ban}` },
+                            { name: '**Moderator:**', value: `${moderator4ban}` },
+                        )
+                        .setFooter('Developed by Ghoulz is Good At Coding#8325.')
+
+                        dude.send(banEmbed)
                     }
         
                 return;
                 }
-                if (command === 'ban') {
-        if(!message.member.hasPermission("BAN_MEMBERS")) return message.channel.send('You do not have permission to run this command.')
-                    const member = message.mentions.users.first();
-                    if(member){
-                        const memberTarget = message.guild.members.cache.get(member.id);
-                        memberTarget.ban();
-                        const newEmbed = new Discord.MessageEmbed()
-                        .setColor(0xff0000)
-                        .setDescription(':white_check_mark: The user has been banned.')
-                        .setFooter('Developed by Ghoulz is Good at Coding#8325')
-                        
-                        message.channel.send(newEmbed)
-        
-                    }else{
-                        message.channel.send(`Please specify who you would like to ban.`)
-                    }
-        
-                return;
-}
 if (command === 'kick') {
-    if(!message.member.hasPermission("KICK_MEMBERS")) return message.channel.send('You do not have permission to run this command.')
-                const member = message.mentions.users.first();
-                if(member){
-                    const memberTarget = message.guild.members.cache.get(member.id);
-                    memberTarget.kick();
-                    const kickEmbed = new Discord.MessageEmbed()
+    if (!message.member.permissions.has("BAN_MEMBERS")) return message.channel.send('You do not have permision to run this command!')
+    let kickbro = message.mentions.users.first()
+    if (!kickbro) return message.channel.send('You did not list a user to ban! Example: -kick @Ghoulz#8325 *Reason*')
+
+    if (!args[1]) return message.channel.send('You did not provide a reason! Example: -kick @Ghoulz#8325 *Reason*')
+
+let reason4kick = args.join(" ").slice(22);
+let moderator4kick = message.author;
+
+                if(kickbro){
+                    const kickmemberTarget = message.guild.members.cache.get(member.id);
+                    kickmemberTarget.kick();
+                    const newkickbroEmbed = new Discord.MessageEmbed()
                     .setColor(0xff0000)
-                    .setDescription(':white_check_mark: The user has been kicked.')
-                    .setFooter('Developed by Ghoulz is Good at Coding#8325')
+                    .setDescription(`:white_check_mark: The user: ${dude} has been kicked from: ${message.guild.name} for the reason of ${reason4ban}`)
                     
-                    message.channel.send(kickEmbed)
-    
-                }else{
-                    message.channel.send('Please specify who you would like to kick.')
+                    message.channel.send(newkickbroEmbed)
+
+                    const kickbroEmbed = new Discord.MessageEmbed()
+                    .setTitle(`You have been kicked from: **${message.guild.name}**`)
+                    .setColor(0xFF0000)
+                    .addFields(
+                        { name: '**Reason:**', value: `${reason4kick}` },
+                        { name: '**Moderator:**', value: `${moderator4kick}` },
+                    )
+                    .setFooter('Developed by Ghoulz is Good At Coding#8325.')
+
+                    kickbro.send(kickbroEmbed)
                 }
     
             return;
-}        
+            }        
 if (command === 'clear') {
 
     const messageArray = message.content.split(' ');
