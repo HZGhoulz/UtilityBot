@@ -242,7 +242,7 @@ if (command === 'say') {
     
     if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send('You do not have permission to use that command.');
     let botmessage = args.join(" ");
-    if (!args) message.channel.send('Please list something for me to say. Example: -say Hello There')
+    if (!args[1]) message.channel.send('Please list something for me to say. Example: -say Hello There')
     message.delete().catch();
     message.channel.send(botmessage);
     return;
