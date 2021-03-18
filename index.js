@@ -237,7 +237,14 @@ if (command === 'warn') {
 
     return;
 }
+if (command === 'say') {
     
+    if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send('You do not have permission to use that command.');
+    let botmessage = args.join(" ");
+    message.delete().catch();
+    message.channel.send(botmessage);
+    return;
+}
 
 }) 
 
