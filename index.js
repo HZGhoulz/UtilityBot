@@ -181,7 +181,7 @@ if (command === 'clean') {
 }
 if (command === 'mute') {
     if(!message.member.hasPermission(['ADMINISTRATOR'])) return;
-    let mutemember = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(x => x.user.username === args.slice(0).join(" ") || x.user.username === args[0])
+    let member = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(x => x.user.username === args.slice(0).join(" ") || x.user.username === args[0])
     if(member.hasPermission(['ADMINISTRATOR']) && !message.member.hasPermission('ADMINISTRATOR')) return;
     let modtomute = message.author
     let reason = args.join(" ").slice(22);
@@ -209,7 +209,7 @@ if (command === 'mute') {
                     .setFooter('Developed by Ghoulz is Good At Coding#8325.')
 
                     try {
-                        mutemember.send(mutebroEmbed)
+                        member.send(mutebroEmbed)
                     } catch (error) {
                         console.error();
                     }
