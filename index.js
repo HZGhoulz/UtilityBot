@@ -196,7 +196,7 @@ if (command === 'mute') {
         }
         if(mutedRole) {
             member.roles.add(mutedRole);
-            message.channel.send(`${mutemember} was Successfully muted.`);
+            message.channel.send(`${member} was Successfully muted.`);
         }
         const mutebroEmbed = new Discord.MessageEmbed()
                     .setTitle(`You have been muted in: **${message.guild.name}!**`)
