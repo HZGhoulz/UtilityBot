@@ -218,7 +218,6 @@ if (command === 'mute') {
 if (command === 'unmute') {
     if(!message.member.hasPermission(['ADMINISTRATOR'])) return;
     let member = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(x => x.user.username === args.slice(0).join(" ") || x.user.username === args[0])
-    if(member.hasPermission(['ADMINISTRATOR']) && !message.member.hasPermission('ADMINISTRATOR')) return;
 
     let mutedRole = message.guild.roles.cache.find(
         (role) => role.name === 'Muted!'
@@ -226,7 +225,17 @@ if (command === 'unmute') {
         
         if(mutedRole) {
             member.roles.remove(mutedRole);
-            message.channel.send("User was Successfully Unmuted.");
+            message.channel.send(`${member} was successfully unmuted.`);
+        }
+
+        const unmuteEmbed = new Discord.MessageEmbed()
+        .setTitle(`You have been unmuted in: **${message.guild.name}**`)
+        .setDescription(`You are now able to type in ${message.guild.name}.`)
+
+        try {
+            member.send(unmuteEmbed)
+        } catch (error) {
+            console.error();
         }
         return;
 }
