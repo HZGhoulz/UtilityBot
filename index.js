@@ -181,9 +181,13 @@ if (command === 'clean') {
 }
 if (command === 'mute') {
     if(!message.member.hasPermission(['ADMINISTRATOR'])) return;
-    let member = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(x => x.user.username === args.slice(0).join(" ") || x.user.username === args[0])
+    let mutemember = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(x => x.user.username === args.slice(0).join(" ") || x.user.username === args[0])
     if(member.hasPermission(['ADMINISTRATOR']) && !message.member.hasPermission('ADMINISTRATOR')) return;
-    
+    let modtomute = message.author
+    let reason = args.join(" ").slice(22);
+    if (!args[0]) return message.channel.send("Please list a member to mute. Example: -mute @user *reason*")
+
+    if (!args[1]) return message.channel.send("Please list a reason. Example: -mute @user *reason*")
         let mutedRole = message.guild.roles.cache.find(
             (role) => role.name === 'Muted!'
         );
@@ -193,8 +197,23 @@ if (command === 'mute') {
         }
         if(mutedRole) {
             member.roles.add(mutedRole);
-            message.channel.send("User was Successfully muted.");
+            message.channel.send(`${mutemember} was Successfully muted.`);
         }
+        const mutebroEmbed = new Discord.MessageEmbed()
+                    .setTitle(`You have been muted in: **${message.guild.name}!**`)
+                    .setColor(0xFF0000)
+                    .addFields(
+                        { name: '**Reason:**', value: `${reason}` },
+                        { name: '**Moderator:**', value: `${modtomute}` },
+                    )
+                    .setFooter('Developed by Ghoulz is Good At Coding#8325.')
+
+                    try {
+                        mutemember.send(mutebroEmbed)
+                    } catch (error) {
+                        console.error();
+                    }
+
     return;
 }
 if (command === 'unmute') {
