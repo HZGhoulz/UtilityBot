@@ -272,7 +272,7 @@ if (command === 'say') {
     if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send('You do not have permission to use that command.');
     let botmessage = args.join(" ");
     const saytext = (args[1])
-    if (args[1] === 'Nigger') return message.channel.send("You cannot make me say the N Word!")
+    if (saytext === 'Nigger') return message.channel.send("You cannot make me say the N Word!")
 
     if (args[1] === 'Nigga') return message.channel.send("You cannot make me say the N Word!")
 
