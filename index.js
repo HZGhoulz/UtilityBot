@@ -268,9 +268,18 @@ if (command === 'warn') {
     return;
 }
 if (command === 'say') {
-    
+
     if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send('You do not have permission to use that command.');
     let botmessage = args.join(" ");
+    const saytext = (args[1])
+    if (message.content === 'Nigger') return message.channel.send("You cannot make me say the N Word!")
+
+    if (message.content === 'Nigga') return message.channel.send("You cannot make me say the N Word!")
+
+    if (message.content === 'nigger') return message.channel.send("You cannot make me say the N Word!")
+
+    if (message.content === 'nigga') return message.channel.send("You cannot make me say the N Word!")
+
     if (!args[1]) message.channel.send('Please list something for me to say. Example: -say Hello There')
     message.delete().catch();
     message.channel.send(botmessage);
