@@ -29,7 +29,6 @@ bot.on("message", message => {
                 .setTitle('**Command Directory**')
                 .addFields(
                     { name: '**-commands**', value: 'Use this command to see all commands.'},
-                    { name: '**-say**', value: 'Use this command to make the bot say something.'},
                     { name: '**-membercount**', value: 'Use this command to see the member count of the server the bot it currently in.'},
                     { name: '**-time**', value: 'Use this command to see the current time.'},
                     { name: '**-warn**', value: 'Use this command to warn a user.'},
@@ -267,24 +266,8 @@ if (command === 'warn') {
 
     return;
 }
-if (command === 'say') {
 
-    if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.channel.send('You do not have permission to use that command.');
-    let botmessage = args.join(" ");
-    const saytext = (args[1])
-    if (saytext === 'Nigger') return message.channel.send("You cannot make me say the N Word!")
 
-    if (args[1] === 'Nigga') return message.channel.send("You cannot make me say the N Word!")
-
-    if (args[1] === 'nigger') return message.channel.send("You cannot make me say the N Word!")
-
-    if (args[1] === 'nigga') return message.channel.send("You cannot make me say the N Word!")
-
-    if (!args[1]) message.channel.send('Please list something for me to say. Example: -say Hello There')
-    message.delete().catch();
-    message.channel.send(botmessage);
-    return;
-}
 
 }) 
 
