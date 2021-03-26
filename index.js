@@ -183,9 +183,10 @@ if (command === 'mute') {
     let member = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(x => x.user.username === args.slice(0).join(" ") || x.user.username === args[0])
     let modtomute = message.author
     let reason = args.join(" ").slice(22);
-    if (!args[0]) return message.channel.send("Please list a member to mute. Example: -mute @user *reason*")
-
-    if (!args[1]) return message.channel.send("Please list a reason. Example: -mute @user *reason*")
+    if (!args[0]) return message.channel.send("Please list a member to mute. Example: -mute @user time *reason*. **Note: when muting a user list the number and then unit of time(10s = 10 seconds, 10m = 10 minites, 10h = 10 hours.): -mute @user 10s *reason*")
+    let timemute = (args[1])
+    if (!timemute) return message.channel.send('Please list a time. Example: -mute @user time *reason*. **Note: when muting a user list the number and then unit of time(10s = 10 seconds, 10m = 10 minites, 10h = 10 hours.): -mute @user 10s *reason*')
+    if (!args[2]) return message.channel.send("Please list a reason. Example: -mute @user time *reason*. **Note: when muting a user list the number and then unit of time(10s = 10 seconds, 10m = 10 minites, 10h = 10 hours.): -mute @user 10s *reason*")
         let mutedRole = message.guild.roles.cache.find(
             (role) => role.name === 'Muted!'
         );
@@ -195,12 +196,13 @@ if (command === 'mute') {
         }
         if(mutedRole) {
             member.roles.add(mutedRole);
-            message.channel.send(`${member} was successfully muted for: ${reason}.`);
+            message.channel.send(`${member} was successfully muted for ${timemute} because: ${reason}.`);
         }
         const mutebroEmbed = new Discord.MessageEmbed()
                     .setTitle(`You have been muted in: **${message.guild.name}!**`)
                     .setColor(0xFF0000)
                     .addFields(
+                        { name: '**Duration:**', value: `${timemute}` },
                         { name: '**Reason:**', value: `${reason}` },
                         { name: '**Moderator:**', value: `${modtomute}` },
                     )
@@ -211,11 +213,27 @@ if (command === 'mute') {
                     } catch (error) {
                         console.error();
                     }
+        setTimeout(function(){
+            member.roles.remove(mutedRole)
+            const unmuteEmbed = new Discord.MessageEmbed()
+            .setTitle(`You have been unmuted in: **${message.guild.name}**`)
+            .setColor(0x008000)
+            .setDescription(`You are now able to type in ${message.guild.name}.`)
+            .setFooter('Developed by Ghoulz is Good at Coding#8325.')
+            
+            message.channel.send(`@${member.user.id} has been unmuted.`)
+            
+            try {
+                member.send(unmuteEmbed)
+            } catch (error) {
+                console.error();
+            }
+        }, ms(timemute));
 
     return;
 }
 if (command === 'unmute') {
-    if(!message.member.hasPermission(['ADMINISTRATOR'])) return;
+    if(!message.member.hasPermission(['MUTE_MEMBERS'])) return;
     let member = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(x => x.user.username === args.slice(0).join(" ") || x.user.username === args[0])
     if (!args[0]) return message.channel.send('Please list a member to unmute. Example: -unmute @user')
     let mutedRole = message.guild.roles.cache.find(
