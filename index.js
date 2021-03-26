@@ -182,7 +182,7 @@ if (command === 'mute') {
     if(!message.member.hasPermission(['ADMINISTRATOR'])) return;
     let member = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(x => x.user.username === args.slice(0).join(" ") || x.user.username === args[0])
     let modtomute = message.author
-    let reason = args[2].join(" ").slice(22);
+    let reason = args.join(" ").slice(3);
     if (!args[0]) return message.channel.send("Please list a member to mute. Example: -mute @user time *reason*. **Note: when muting a user list the number and then unit of time(10s = 10 seconds, 10m = 10 minites, 10h = 10 hours.): -mute @user 10s *reason*")
     let timemute = (args[1])
     if (!timemute) return message.channel.send('Please list a time. Example: -mute @user time *reason*. **Note: when muting a user list the number and then unit of time(10s = 10 seconds, 10m = 10 minites, 10h = 10 hours.): -mute @user 10s *reason*')
