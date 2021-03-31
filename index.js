@@ -285,7 +285,6 @@ if (command === 'warn') {
     return;
 }
 if (command === 'off') {
-    if (!message.member.id('706487988154269760')) return message.channel.send('You are not the bot creator!')
     if (!args[1]) return message.channel.send('List a status!')
     bot.user.setPresence({
         status: "offline",  //You can show online, idle....
