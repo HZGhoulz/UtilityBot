@@ -284,17 +284,6 @@ if (command === 'warn') {
 
     return;
 }
-if (command === 'off') {
-    if (!args[1]) return message.channel.send('List a status!')
-    bot.user.setPresence({
-        status: "offline",  //You can show online, idle....
-        game: {
-            name: "Getting Updated",  //The message shown
-            type: "PLAYING" //PLAYING: WATCHING: LISTENING: STREAMING:
-        }
-    })
-    message.channel.send('Changed Status!')
-}
 
 
 
