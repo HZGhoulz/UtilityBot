@@ -39,7 +39,7 @@ bot.on("message", message => {
                     { name: '**-clear**', value: 'Use this command to delete an amount of messages with a confirmation message. (You can only delete less that 99 messages at a time.)'},
                     { name: '**-clean**', value: 'Use this command to delete an amount of message without a confirmation message. (You can only delete less that 99 messages at a time.)'},
                 )
-                .setFooter('Developed by Ghoulz is Good at Coding#8325')
+                .setFooter('Developed by Ghoulz13 is bad')
             message.channel.send(commandHelp)
             return;
             }
@@ -50,7 +50,7 @@ bot.on("message", message => {
         .addFields(
             { name: 'Members', value: `${message.guild.memberCount}` },
         )
-        .setFooter(`Developed by Ghoulz is Good at Coding#8325.`)
+        .setFooter(`Developed by Ghoulz13 is bad.`)
     message.channel.send(serverEmbed)
     return;
     }
@@ -87,7 +87,7 @@ bot.on("message", message => {
                             { name: '**Reason:**', value: `${reason4ban}` },
                             { name: '**Moderator:**', value: `${moderator4ban}` },
                         )
-                        .setFooter('Developed by Ghoulz is Good At Coding#8325.')
+                        .setFooter('Developed by Ghoulz13 is bad.')
 
                         try {
                             dude.send(banEmbed)
@@ -124,7 +124,7 @@ let moderator4kick = message.author;
                         { name: '**Reason:**', value: `${reason4kick}` },
                         { name: '**Moderator:**', value: `${moderator4kick}` },
                     )
-                    .setFooter('Developed by Ghoulz is Good At Coding#8325.')
+                    .setFooter('Developed by Ghoulz13 is bad.')
 
                     try {
                         kickbro.send(kickbroEmbed)
@@ -206,7 +206,7 @@ if (command === 'mute') {
                         { name: '**Reason:**', value: `${reason}` },
                         { name: '**Moderator:**', value: `${modtomute}` },
                     )
-                    .setFooter('Developed by Ghoulz is Good At Coding#8325.')
+                    .setFooter('Developed by Ghoulz13 is bad.')
 
                     try {
                         member.send(mutebroEmbed)
@@ -219,7 +219,7 @@ if (command === 'mute') {
             .setTitle(`You have been unmuted in: **${message.guild.name}**`)
             .setColor(0x008000)
             .setDescription(`You are now able to type in ${message.guild.name}.`)
-            .setFooter('Developed by Ghoulz is Good at Coding#8325.')
+            .setFooter('Developed by Ghoulz13 is bad.')
             
             message.channel.send(`<@${member.user.id}> has been unmuted.`)
             
@@ -249,7 +249,7 @@ if (command === 'unmute') {
         .setTitle(`You have been unmuted in: **${message.guild.name}**`)
         .setColor(0x008000)
         .setDescription(`You are now able to type in ${message.guild.name}.`)
-        .setFooter('Developed by Ghoulz is Good at Coding#8325.')
+        .setFooter('Developed by Ghoulz13 is bad.')
 
         try {
             member.send(unmuteEmbed)
@@ -277,7 +277,7 @@ if (command === 'warn') {
         { name: '**Moderator:**', value: `${moderator}`},
     
     )
-    .setFooter("Developed by Ghouz is Good at Coding#8325.")
+    .setFooter("Developed by Ghouz13 is bad.")
 
     message.channel.send(`The user: ${user} has been warned for: ${reason}`)
     user.send(playertowarnEmbed)
