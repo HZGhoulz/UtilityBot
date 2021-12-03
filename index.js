@@ -289,8 +289,7 @@ if (command === 'setup') {
     if(!message.member.hasPermission(["ADMINISTRATOR"])) return message.channel.send(`${message.member}, You don't have permission to run this command.`)
     
     message.guild.roles.create({
-        name: 'Muted!',
-        DiscordPermissionOverwrites,
+        name: 'Muted!', 
         SEND_MESSAGES: false,
 
     });
