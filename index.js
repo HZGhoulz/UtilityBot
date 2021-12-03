@@ -1,4 +1,5 @@
 const Discord = require('discord.js');
+const { create } = require('domain');
 const bot = new Discord.Client;
 const prefix = '-';
 const fs = require('fs');
@@ -283,6 +284,18 @@ if (command === 'warn') {
     user.send(playertowarnEmbed)
 
     return;
+}
+if (command === 'setup') {
+    if(!message.member.hasPermission(["ADMINISTRATOR"])) return message.channel.send(`${message.member}, You don't have permission to run this command.`)
+    
+    message.guild.roles.create({
+        name: 'Muted!',
+        DiscordPermissionOverwrites,
+        SEND_MESSAGES: false,
+
+    });
+    
+    message.channel.send('Setup Complete.')
 }
 
 
