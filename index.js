@@ -292,10 +292,8 @@ if (command === 'addrole') {
     let role = message.guild.roles.cache.find(
             (role) => role.name === (args[1]))
     if (!role) return message.channel.send('Please list a role. Example: -mute @user role.')
-  
-        
-        );
   member.roles.add(role);
+}
 
 
 }) 
