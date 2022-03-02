@@ -286,13 +286,14 @@ if (command === 'warn') {
     return;
 }
 if (command === 'addrole') {
-    if(!message.member.hasPermission(['ADMINISTRATOR'])) return;
+    if(!message.member.hasPermission(['MANAGE_MEMBERS'])) return;
     let member = message.mentions.members.first() || message.guild.members.cache.get(args[0]) || message.guild.members.cache.find(x => x.user.username === args.slice(0).join(" ") || x.user.username === args[0])
     if (!args[0]) return message.channel.send("Please list a member to add a role to. Example: -addrole @user.")
     let role = message.guild.roles.cache.find(
             (role) => role.name === (args[1]))
-    if (!role) return message.channel.send('Please list a role. Example: -mute @user role.')
+    if (!role) return message.channel.send('Please list a role. Example: -addrole @user role.')
   member.roles.add(role);
+    message.channel.send(`Successfully gave ${member} the ${role} role.`)
 }
 
 
