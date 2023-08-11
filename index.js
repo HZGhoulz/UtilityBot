@@ -299,6 +299,6 @@ if (command === 'addrole') {
 
 }) 
 
-
+//bot token is in the VPS hidden keys
 
 bot.login(process.env.token);
